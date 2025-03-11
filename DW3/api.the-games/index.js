@@ -1,10 +1,18 @@
 import express from 'express'
+import mongoose from 'mongoose'
+import Games from './models/Games.js'
 const app = express()
-
 
 // Configuração do Express
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
+app.use("/", gameRoutes)
+
+// Importando as rotas (endpoints) de Games
+import gameRoutes from './routes/gameRoutes.js'
+
+// Iniciando a conexão com o banco de dados do MongoDB
+mongoose.connect("mongodb://127.0.0.1:27017/api-thegames")
 
 // ROTA PRINCIPAL
 app.get("/", (req,res) => {
