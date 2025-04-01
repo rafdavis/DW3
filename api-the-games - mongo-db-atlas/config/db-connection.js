@@ -1,7 +1,8 @@
+// Importando o mongoose
 import mongoose from "mongoose";
-
-const dbUser = "";
-const dbPassword = "";
+// Usuário e senha do banco de dados
+const dbUser = "ricardofatec290";
+const dbPassword = "5Ykf12VsIihlk0XI";
 
 const connect = () => {
   mongoose.connect(
