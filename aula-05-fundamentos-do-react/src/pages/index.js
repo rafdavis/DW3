@@ -1,8 +1,9 @@
-import Contador from "@/components/Contador";
 import Counter from "@/components/Counter";
 import Descriptions from "@/components/Descriptions";
 import Dog from "@/components/Dog";
+import Form from "@/components/Form";
 import Parent from "@/components/Parent";
+import TrafficLight from "@/components/TrafficLight";
 import User from "@/components/User";
 import Welcome from "@/components/Welcome";
 import Head from "next/head";
@@ -30,8 +31,14 @@ export default function Home() {
         <Dog name="Bart" breed="Pitbull"/>
         {/* Importando Contador */}
         <Counter />
-        {/* Importando o outro Contador  */}
-        <Contador />
+        <br />
+        <br />
+        {/* Importando o componente do Semáforo */}
+        <TrafficLight />
+        <br />
+        <br />
+        {/* Formulário de cadastro */}
+        <Form />
       </main>
     </>
   );
