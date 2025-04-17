@@ -15,7 +15,7 @@ const [count, setCount] = useState(0)
         <p>Contador: {count}</p>
         <button onClick={() => setCount(count + 1)} style={{color: "black"}}>Aumentar</button>
         <button onClick={() => setCount(count - 1)} style={{color: "black"}}>Diminuir </button>
-        <button onClick={() => setCount(count == 0 )} style={{color: "black"}}>Zerar</button>
+        <button onClick={() => setCount(0)} style={{color: "black"}}>Zerar</button>
       </div>
     </>
   );

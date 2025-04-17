@@ -3,6 +3,7 @@ import Descriptions from "@/components/Descriptions";
 import Dog from "@/components/Dog";
 import Form from "@/components/Form";
 import Parent from "@/components/Parent";
+import TaskList from "@/components/TaskList/Index.js";
 import TrafficLight from "@/components/TrafficLight";
 import User from "@/components/User";
 import Welcome from "@/components/Welcome";
@@ -39,6 +40,30 @@ export default function Home() {
         <br />
         {/* Formulário de cadastro */}
         <Form />
+        <br />
+        <br />
+        {/* Importando o componente de Lista de Tarefas */}
+        {/* Passando a lista de tarefas por PROPS */}
+        <TaskList tasks={[
+          {
+            id: 1,
+            text: "Estudar React"
+          },
+          {
+            id: 2,
+            text: "Pagar os boletos"
+          },
+          {
+            id: 3,
+            text: "Retirar o lixo"
+          },
+          {
+            id: 4,
+            text: "Lavar a roupa"
+          }
+          ]}/>
+          <br />
+          <br />
       </main>
     </>
   );
