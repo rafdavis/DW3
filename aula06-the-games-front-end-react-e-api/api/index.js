@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import Games from "./models/Games.js"
 import User from "./models/Users.js"
 const app = express();
+// Importando o CORS
+import cors from 'cors'
 
 // Importando as rotas (endpoints) de Games
 import gameRoutes from './routes/gameRoutes.js'
@@ -12,6 +14,10 @@ import userRoutes from './routes/userRoutes.js'
 // Configurações do Express
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// Configurando o CORS
+app.use(cors()) // Aberto (sem restrição de acesso)
+
 app.use('/', gameRoutes)
 app.use('/', userRoutes)
 
