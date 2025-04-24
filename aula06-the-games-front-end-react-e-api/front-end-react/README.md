@@ -39,7 +39,3 @@ npm run dev
 ```
 
 <hr>
-
-# Autor
-
-Prof. Diego Max da Silva<br>
