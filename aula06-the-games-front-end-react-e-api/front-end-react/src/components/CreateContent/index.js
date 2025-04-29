@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { useRouter } from "next/router";
 import styles from "@/components/CreateContent/CreateContent.module.css";
+import axios from "axios";
 
 const CreateContent = () => {
   // Criando os estados para as informações do jogo
@@ -9,12 +11,48 @@ const CreateContent = () => {
   const [genre, setGenre] = useState("");
   const [platform, setPlatform] = useState("");
   const [rating, setRating] = useState("");
+
+  // Carregando o router
+  const router = useRouter();
+
+  // Tratando a submissão do formulário
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Validação do formulário (CAMPOS VAZIOS)
+    if (title && year && price && genre && platform && rating !== "") {
+      const game = {
+        title: title,
+        year: year,
+        price: price,
+        descriptions: {
+          platform: platform,
+          genre: genre,
+          rating: rating,
+        },
+      };
+      // Fazendo POST na API para cadastro
+      try {
+        const response = await axios.post("http://localhost:4000/games", game);
+        if (response.status === 201) {
+          alert("Game cadastrado com sucesso!");
+          router.push("/home")
+        }
+      } catch (error) {
+        console.log(error);
+      }
+      // console.log(game)
+    } else {
+      alert("Por favor, preencha todos os campos.");
+    }
+  };
+
   return (
     <div className={styles.createContent}>
       <div className="title">
         <h2>Cadastrar novo jogo</h2>
       </div>
-      <form id="createForm" className="formPrimary">
+      <form id="createForm" className="formPrimary" onSubmit={handleSubmit}>
         <input
           type="text"
           name="title"
