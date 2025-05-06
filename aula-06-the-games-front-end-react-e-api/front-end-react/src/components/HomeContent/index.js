@@ -49,6 +49,14 @@ const HomeContent = () => {
     setSelectedGame(null);
   };
 
+  // Função para atualizar o jogo editado na lista
+  const handleUpdate = (updatedGame) => {
+    setGames(
+      games.map((game) => (game._id === updatedGame._id ? updatedGame : game))
+    );
+    closeEditModal();
+  };
+
   return (
     <>
       <div className={styles.homeContent}>
@@ -108,7 +116,8 @@ const HomeContent = () => {
         </div>
         {/* Renderização condicional */}
         {selectedGame && (
-          <EditContent game={selectedGame} onClose={closeEditModal} />
+          <EditContent game={selectedGame} onClose={closeEditModal} 
+          handleUpdate={handleUpdate}/>
         )}
       </div>
     </>

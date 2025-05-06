@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "@/components/EditContent/EditContent.module.css";
 
-const EditContent = ({ onClose, game }) => {
+const EditContent = ({ onClose, game, handleUpdate }) => {
   // Criando os estados para as informações do jogo
   const [id, setId] = useState("");
   const [title, setTitle] = useState("");
@@ -47,6 +47,8 @@ const EditContent = ({ onClose, game }) => {
       );
       if (response.status === 200) {
         alert("O jogo foi alterado com sucesso!");
+        // Passa o jogo atualizado para a função handleUpdate para atualizar o estado
+        handleUpdate(response.data.game)
       }
     } catch (error) {
       console.log(error);
